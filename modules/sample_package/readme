@@ -1,0 +1,1 @@
+Yes, the plugin can be also a package. Just place your initialize_module method inside __init__.py file.
