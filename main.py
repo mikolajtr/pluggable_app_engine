@@ -1,5 +1,6 @@
 import json
-from app_context import AppContext
+
+from pluggable_app_engine import AppContext
 
 if __name__ == '__main__':
     config_path = 'config.json'
