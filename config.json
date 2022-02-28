@@ -3,6 +3,6 @@
     "modules": [
         "sample",
         "simple_window",
-        "test_package"
+        "sample_package"
     ]
 }

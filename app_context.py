@@ -1,14 +1,13 @@
-import json
 import sys
 
 from threading import Thread
 from importlib import import_module
 
 class AppContext:
-    def __init__(self, config_path='config.json', state=dict()):
-        self.config = self.parse_config(config_path)
-        self.state = dict(state)
-        self.plugins = dict()
+    def __init__(self, config, state):
+        self.config = config
+        self.state = state
+        self.plugins = {}
 
         modules_path = self.config['modules_path']
         modules_list = self.config['modules']
@@ -16,10 +15,6 @@ class AppContext:
         sys.path.append(modules_path)
 
         self.load_plugins(modules_list)
-
-    def parse_config(self, config_path):
-        with open(config_path, 'r') as file:
-            return json.loads(file.read())
 
     def load_plugins(self, modules_list):
         for name in modules_list:
